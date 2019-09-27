@@ -1,0 +1,29 @@
+<div *ngIf="bookingInfo$ | async as bookingInfo">
+    <div class="car-details-container">
+        <h2 class="car-details-model">{{ bookingInfo.carDetails.model}}</h2>
+        <p class="car-details-description">{{ bookingInfo.carDetails.description }}</p>
+    </div>
+
+    <div class="booking-info-container">
+        <div class="price-breakdown">
+            <table>
+                <tbody>
+                    <tr *ngFor="let priceItem of bookingInfo.priceBreakdown | keyvalue">
+                        <td>{{ priceItem.key }}</td>
+                        <td>{{ priceItem.value }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="price-total">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Total</td>
+                        <td>{{ bookingInfo.totalPrice }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
