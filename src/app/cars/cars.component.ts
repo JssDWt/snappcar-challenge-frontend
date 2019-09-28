@@ -4,7 +4,7 @@ import { CarsService } from '../_services';
 import { Observable } from 'rxjs';
 import * as moment from 'moment';
 import { NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
-import { Options, ChangeContext } from 'ng5-slider';
+import { Options, ChangeContext, LabelType } from 'ng5-slider';
 
 @Component({
   selector: 'cars',
@@ -21,7 +21,8 @@ export class CarsComponent implements OnInit {
   maxPrice = 10000;
   sliderOptions: Options = {
     floor: 0,
-    ceil: 100
+    ceil: 100,
+    translate: (value: number, label: LabelType): string => '€' + value,
   };
   constructor(
     private carsService: CarsService,

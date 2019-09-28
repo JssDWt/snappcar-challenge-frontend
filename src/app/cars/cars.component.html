@@ -1,30 +1,36 @@
-<div class="row filter-container">
-    <div class="date-range-filter col-12 col-md-6">
-        <ngb-datepicker #dp (select)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t" outsideDays="hidden">
-        </ngb-datepicker>
-            
-        <ng-template #t let-date let-focused="focused">
-            <span class="custom-day"
-                [class.focused]="focused"
-                [class.range]="isRange(date)"
-                [class.faded]="isHovered(date) || isInside(date)"
-                (mouseenter)="hoveredDate = date"
-                (mouseleave)="hoveredDate = null">
-            {{ date.day }}
-            </span>
-        </ng-template>
+<div class="container">
+    <div class="filter-container">
+        <h2>Filters</h2>
+        <div class="row">
+            <div class="date-range-filter col-12 col-md-8">
+                <ngb-datepicker #dp (select)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t" outsideDays="hidden">
+                </ngb-datepicker>
+                    
+                <ng-template #t let-date let-focused="focused">
+                    <span class="custom-day"
+                        [class.focused]="focused"
+                        [class.range]="isRange(date)"
+                        [class.faded]="isHovered(date) || isInside(date)"
+                        (mouseenter)="hoveredDate = date"
+                        (mouseleave)="hoveredDate = null">
+                    {{ date.day }}
+                    </span>
+                </ng-template>
+            </div>
+            <div class="price-range-filter col-12 col-md-6 col-lg-4">
+                <ng5-slider [(value)]="minPrice" [(highValue)]="maxPrice" [options]="sliderOptions" (userChangeEnd)="onPriceChangeEnd($event)"></ng5-slider>
+            </div>
+        </div>
     </div>
-    <div class="price-range-filter col-12 col-md-6 col-lg-4">
-        <ng5-slider [(value)]="minPrice" [(highValue)]="maxPrice" [options]="sliderOptions" (userChangeEnd)="onPriceChangeEnd($event)"></ng5-slider>
-    </div>
-</div>
-<div class="search-results-container">
-    <div *ngIf="cars$ | async as cars" class="row">
-        <div *ngFor="let car of cars" class="card col-12 col-md-4 col-lg-3 col-xl-2 m-2">
-            <div class="card-body">
-                <h5 class="card-title">{{ car.model }}</h5>
-                <h6 class="card-subtitle">{{ car.price }}</h6>
-                <a [routerLink]="[ '/cars', car.id ]" [queryParams]="{from: fromDateString, to: toDateString}" class="stretched-link"></a>
+    <div class="search-results-container pt-3">
+        <h2>Search results</h2>
+        <div *ngIf="cars$ | async as cars" class="row">
+            <div *ngFor="let car of cars" class="card col-8 col-md-4 col-lg-3 col-xl-2 m-2">
+                <div class="card-body">
+                    <h5 class="card-title">{{ car.model }}</h5>
+                    <h6 class="card-subtitle">{{ car.price }}</h6>
+                    <a [routerLink]="[ '/cars', car.id ]" [queryParams]="{from: fromDateString, to: toDateString}" class="stretched-link"></a>
+                </div>
             </div>
         </div>
     </div>
