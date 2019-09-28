@@ -1,27 +1,24 @@
-# SnappcarChallengeFrontend
+## Notes
+- There are no tests. If you want I can write tests to prove that I can (and do) write tests.
+- Next steps I would take are:
+  - Loading indicators for transition smoothness.
+  - Error handling flows with compensations for a failing API for example.
+  - Creating an awesome look and feel. (Because that simply takes time)
+- You can login with the specified credentials. You cannot logout. (Would logout automatically after 7 days). If you want to logout you can clear the local storage.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.6.
+## About the project
+Included routing, components and services to show I know Angular basics.
+Included an auth guard
+Included http interceptors for 
+  - cors, 
+  - adding jwt tokens to requests 
+  - and failing authentication (=logout)
+Used bootstrap for ease in the design
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Functionality
+- Select dates
+  - It does not filter on dates, 
+  - but uses the dates to provide detailed pricing information in the detail page.
+- Select a price range (=filter)
+- View car pricing details for the selected dates.
+  - The order of pricing information is unusual, but fine for this project I suppose.

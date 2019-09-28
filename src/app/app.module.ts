@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { CarsComponent } from './cars';
 import { CarDetailsComponent } from './car-details';
 import { LoginComponent } from './login';
-import { AccountComponent } from './account';
 import { JwtInterceptor, ErrorInterceptor, CorsInterceptor } from './_helpers';
 
 
@@ -20,8 +19,7 @@ import { JwtInterceptor, ErrorInterceptor, CorsInterceptor } from './_helpers';
     AppComponent,
     CarsComponent,
     CarDetailsComponent,
-    LoginComponent,
-    AccountComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
