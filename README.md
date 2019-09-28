@@ -6,6 +6,12 @@
   - Creating an awesome look and feel. (Because that simply takes time)
 - You can login with the specified credentials. You cannot logout. (Would logout automatically after 7 days). If you want to logout you can clear the local storage.
 
+## Running the project
+- Requires node (v12.10.0?) and Angular cli (v8.3.6?) to be installed
+- open a terminal inside the git repo and run the following commands:
+npm install
+ng serve
+
 ## About the project
 Included routing, components and services to show I know Angular basics.
 Included an auth guard
